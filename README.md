@@ -71,7 +71,8 @@ Cette page vous permet de se connecter sur votre compte que vous aves déjà cr�
 
 ## Session dans le dossier /tmp/ du serveur :
 
-![session](https://user-images.githubusercontent.com/73197564/104053342-562ebc80-51eb-11eb-987f-0d26c02f1d46.PNG)
+![15](https://user-images.githubusercontent.com/73197564/104060728-a3b12680-51f7-11eb-8c2b-9c7aa9793cb9.PNG)
+
 
 Cookie  :
 
