@@ -1,0 +1,204 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+
+-- Base de données : `site`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande`
+--
+
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
+  `id_commande` int(3) NOT NULL AUTO_INCREMENT,
+  `id_membre` int(3) DEFAULT NULL,
+  `montant` int(3) NOT NULL,
+  `date_enregistrement` datetime NOT NULL,
+  `etat` enum('en cours de traitement','envoyé','livré') NOT NULL,
+  PRIMARY KEY (`id_commande`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id_commande`, `id_membre`, `montant`, `date_enregistrement`, `etat`) VALUES
+(1, 4, 301, '2015-07-10 14:44:46', 'en cours de traitement'),
+(2, 7, 20, '2021-01-07 14:27:57', 'en cours de traitement'),
+(3, 7, 20, '2021-01-07 15:23:32', 'en cours de traitement'),
+(4, 7, 0, '2021-01-07 15:24:57', 'en cours de traitement'),
+(5, 8, 20, '2021-01-07 20:01:29', 'en cours de traitement'),
+(6, 7, 750, '2021-01-08 07:38:30', 'en cours de traitement'),
+(7, 7, 3500, '2021-01-08 13:10:23', 'en cours de traitement'),
+(8, 7, 1500, '2021-01-08 14:37:18', 'en cours de traitement'),
+(9, 10, 700, '2021-01-08 16:44:11', 'en cours de traitement'),
+(10, 10, 0, '2021-01-08 16:45:16', 'en cours de traitement'),
+(11, 10, 1000, '2021-01-08 16:45:45', 'en cours de traitement'),
+(12, 10, 0, '2021-01-08 16:46:11', 'en cours de traitement'),
+(13, 10, 300, '2021-01-08 16:46:29', 'en cours de traitement'),
+(14, 7, 400, '2021-01-08 17:04:00', 'en cours de traitement'),
+(15, 7, 0, '2021-01-08 17:04:02', 'en cours de traitement'),
+(16, 7, 2850, '2021-01-08 17:10:24', 'en cours de traitement'),
+(17, 7, 800, '2021-01-08 17:51:07', 'en cours de traitement');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `details_commande`
+--
+
+DROP TABLE IF EXISTS `details_commande`;
+CREATE TABLE IF NOT EXISTS `details_commande` (
+  `id_details_commande` int(3) NOT NULL AUTO_INCREMENT,
+  `id_commande` int(3) DEFAULT NULL,
+  `id_produit` int(3) DEFAULT NULL,
+  `quantite` int(3) NOT NULL,
+  `prix` int(3) NOT NULL,
+  PRIMARY KEY (`id_details_commande`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `details_commande`
+--
+
+INSERT INTO `details_commande` (`id_details_commande`, `id_commande`, `id_produit`, `quantite`, `prix`) VALUES
+(1, 1, 2, 1, 15),
+(2, 1, 6, 1, 49),
+(3, 1, 8, 3, 79),
+(4, 2, 1, 1, 20),
+(5, 3, 1, 1, 20),
+(6, 5, 1, 1, 20),
+(7, 6, 20, 3, 250),
+(8, 7, 49, 2, 800),
+(9, 7, 50, 2, 800),
+(10, 7, 30, 1, 300),
+(11, 8, 38, 1, 1500),
+(12, 9, 17, 1, 700),
+(13, 11, 8, 4, 250),
+(14, 13, 31, 1, 300),
+(15, 14, 1, 1, 200),
+(16, 14, 1, 1, 200),
+(17, 16, 15, 3, 950),
+(18, 17, 49, 1, 800);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membre`
+--
+
+DROP TABLE IF EXISTS `membre`;
+CREATE TABLE IF NOT EXISTS `membre` (
+  `id_membre` int(3) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(20) NOT NULL,
+  `mdp` varchar(32) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `prenom` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `civilite` enum('m','f') NOT NULL,
+  `ville` varchar(20) NOT NULL,
+  `code_postal` int(5) UNSIGNED ZEROFILL NOT NULL,
+  `adresse` varchar(50) NOT NULL,
+  `statut` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_membre`),
+  UNIQUE KEY `pseudo` (`pseudo`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `membre`
+--
+
+INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `email`, `civilite`, `ville`, `code_postal`, `adresse`, `statut`) VALUES
+(6, 'dounia', 'dounia', 'elabbassi', 'dounia', 'elabbassidounia123@gmail.com', 'm', 'temara', 12005, 'temara', 0),
+(8, 'salma', 'salma123@', 'salma', 'salma', 'elabbassidounia123@gmail.com', 'f', 'temara', 12305, 'saca', 0),
+(9, 'b', 'dounia123', 'salma', 'salma', 'salma485salma@gmail.com', 'f', 'casablanca', 12305, 'casa', 0),
+(10, 'c', 'hi123@', 'salma', 'salma', 'salma485salma@gmail.com', 'f', 'casablanca', 12305, 'casablanca', 0),
+(11, 'test', 'test', 'test', 'test', 'test@gmail.com', 'f', 'testtest', 12548, 'test', 0),
+(12, 'k', 'test', 'test', 'test', 'k@gmail.com', 'f', 'casablanca', 12546, 'test', 0),
+(13, 'test2', 'test2', 'test2', 'test2', 'test2@gmail.com', 'f', 'casablanca', 12345, 'casablanca', 0),
+(14, 'douniaa', 'dpouniaa123@', 'dounia', 'dounia', 'salmamsalha23@gmail.com', 'f', 'casablanca', 12345, 'temara', 0);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produit`
+--
+
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `id_produit` int(3) NOT NULL AUTO_INCREMENT,
+  `reference` varchar(20) NOT NULL,
+  `categorie` varchar(20) NOT NULL,
+  `titre` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `couleur` varchar(20) NOT NULL,
+  `taille` varchar(5) NOT NULL,
+  `public` enum('m','f','mixte') NOT NULL,
+  `photo` text NOT NULL,
+  `prix` int(3) NOT NULL,
+  `stock` int(3) NOT NULL,
+  PRIMARY KEY (`id_produit`),
+  UNIQUE KEY `reference` (`reference`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`id_produit`, `reference`, `categorie`, `titre`, `description`, `couleur`, `taille`, `public`, `photo`, `prix`, `stock`) VALUES
+(1, '', 'bracelet', 'Bracelet en argent avec bagues', 'Bracelet haut qualité Amazigh , production maroc .', 'rouge', '10', 'f', '\\e-commerce projet\\photo\\brac1.jpg', 200, 50),
+(2, '#2365', 'bracelet', 'Bracelet unicouleur en argent ', 'Bracelet haut qualité Amazigh , production maroc .', 'gris', '10', 'f', '\\e-commerce projet\\photo\\brac2.jpg', 150, 50),
+(3, '#5489', 'bracelet', 'Bracelet unicouleur en argent ', 'Bracelet haut qualité Amazigh , production maroc .', 'gris', '10', 'f', '\\e-commerce projet\\photo\\brac2.jpg', 300, 50),
+(4, '#1265', 'bracelet', 'Bracelet unicouleur en argent ', 'Bracelet haut qualité Amazigh , production maroc .', 'gris', '10', 'f', '\\e-commerce projet\\photo\\brac4.jpg', 250, 40),
+(5, '#8796', 'bracelet', 'Bracelet  en argent avec une perle bleu', 'Bracelet haut qualité Amazigh , production maroc .', 'gris', '10', 'f', '\\e-commerce projet\\photo\\brac5.jpg', 400, 50),
+(6, '#1256', 'bracelet', 'Bracelet  en argent ', 'Bracelet décoré avec des perles rouges haut qualité Amazigh , production maroc .', 'gris', '10', 'f', '\\e-commerce projet\\photo\\brac6.jpg', 250, 50),
+(7, '#1276', 'collier', 'collier  en argent ', 'Collier  décoré avec des perles rouges haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\col1.jpg', 250, 50),
+(8, '#1706', 'collier', 'collier  en argent ', 'Collier  décoré avec des perles  haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\col2.jpg', 250, 50),
+(15, '#7206', 'ensemble', 'ensemble en argent ', 'boucle d\'oreils Kholkhal haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\e1.jpg', 950, 50),
+(16, '#0236', 'ensemble', 'ensemble  en argent ', 'boucle d\'oreils Kholkhal haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\e2.jpg', 250, 50),
+(17, '#0156', 'ensemble', 'ensemble  en argent ', 'boucle d\'oreils Kholkhal haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\e3.jpg', 700, 50),
+(18, '#9630', 'ensemble', 'ensemble  en argent ', 'boucle d\'oreils Kholkhal haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\e4.jpg', 900, 50),
+(19, '#8274', 'ensemble', 'collier  en argent ', 'boucle d\'oreils Kholkhal haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\e5.jpg', 1100, 50),
+(20, '#276', 'babouche', 'Babouche bleu ', 'boucle d\'oreils Kholkhal haut qualité Amazigh , production maroc .', 'orange', '10', 'f', '\\e-commerce projet\\photo\\bab1.jpg', 250, 50),
+(21, '#546', 'babouche', 'Babouche traditionnelle ', 'Babouche traditionnel noire  motifé en dorré ', 'noire', '38', 'f', '\\e-commerce projet\\photo\\bab3.jpg', 200, 37),
+(23, '#09', 'babouche', 'Babouche traditionnelle ', 'Babouche traditionnel noire  motifé en dorré ', 'noire', '38', 'f', '\\e-commerce projet\\photo\\bab2.jpg', 200, 37),
+(24, '#589', 'babouche', 'Balerinne traditionnelle ', 'Balerinne traditionnel décoré pard des boucles de couleurs ', 'rouge', '38', 'f', '\\e-commerce projet\\photo\\bab4.jpg', 200, 37),
+(25, '#666', 'babouche', 'Idoukane traditionnelle', 'Idoukan traditionnel rouge bien motifé', 'ROUGE', '38', 'f', '\\e-commerce projet\\photo\\bab5.jpg', 200, 38),
+(26, '#654', 'babouche', 'Babouche traditionnelle ', 'Babouche traditionnel noire  motifé ', 'noire', '38', 'f', '\\e-commerce projet\\photo\\bab6.jpg', 150, 37),
+(27, '#210', 'babouche', 'Idoukan traditionnelle ', 'Idoukane traditionnel rouge  motifé ', 'ROUGE', '38', 'f', '\\e-commerce projet\\photo\\bab7.jpg', 200, 37),
+(28, '#012', 'babouche', 'Babouche traditionnelle ', 'Babouche traditionnel rouge  motifé en dorré ', 'noire', '38', 'f', '\\e-commerce projet\\photo\\bab8.jpg', 150, 37),
+(29, '457', 'Sandales', 'Sandale motifé', 'Sandale haut qualité , bien motifé', 'marron', '38', 'f', '\\e-commerce projet\\photo\\sandale1.jpg', 300, 50),
+(30, '#07', 'Sandales', 'Sandale motifé', 'Sandale haut qualité  , motifé avec des boucles de couleurs , bien motifé', 'marron', '38', 'f', '\\e-commerce projet\\photo\\sandale2.jpg', 300, 50),
+(31, '#011', 'Sandales', 'Sandale motifé', 'Sandale haut qualité , motifé avec des boucles de couleurs , bien motifé', 'marron', '38', 'f', '\\e-commerce projet\\photo\\sandale3.jpg', 300, 50),
+(32, '#00', 'Sandales', 'Sandale motifé', 'Sandale haut qualité , motifé avec des boucles de couleurs , bien motifé', 'marron', '38', 'f', '\\e-commerce projet\\photo\\sandale4.jpg', 300, 50);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

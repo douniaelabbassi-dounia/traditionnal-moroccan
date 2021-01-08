@@ -1,0 +1,220 @@
+/**************************************************** GENERAL ************************************************/
+*{ margin: 0; }
+body{ font-family : verdana; font-size: 12px; }
+a{ text-decoration: none; color: #000; }
+.conteneur{ margin: 0 auto; max-width: 1170px; }
+/**************************************************** HAUT ************************************************/
+header { background: #000000; padding: 5px; text-align: center; }
+header  span{ color: #fff; font-weight: bold; text-transform: uppercase; margin-right: 5%; }
+header  nav{ display: inline; }
+header  a{ color: #ffffff; text-decoration: none; padding: 5px 5px; }
+header  nav  a:hover{ background: #04baf6; }
+/**************************************************** MILIEU ************************************************/
+section{ padding: 30px; min-height: 800px; }
+/**************************************************** BAS ************************************************/
+footer{ background: #000; color: white; text-align: center; padding: 7px 0;}
+/**************************************************** GENERAL ************************************************/
+.erreur{ background: #ff0000; padding: 5px; margin: 5px; }
+.validation{ background: #669933; padding: 5px; margin: 5px; }
+.cadre{ border: 1px solid #c0c0c0; width: 30%;}
+.cadre  h2{ background: #c0c0c0; margin: 0; text-align: center; font-size: 15px; padding: 5px; }
+.cadre  p{ padding: 10px; }
+.centre{text-align: center;}
+/**************************************************** BOUTIQUE ************************************************/
+.boutique-gauche{ float: left; width: 30%; background: #f2f2f2; min-height: 500px; margin-right: 10%; padding-top: 10px; text-align: center; }
+.boutique-gauche  ul{ list-style: none; padding: 0; }
+.boutique-gauche  ul  li  a{ display: block; padding: 10px; }
+.boutique-gauche  ul  li  a:hover{ background: #04baf6; color: #fff; }
+.boutique-droite{float: left; width: 60%; }
+.boutique-produit{ float: left; width: 30%; text-align: center; padding: 5%; border-bottom: 1px solid #c0c0c0; }
+.boutique-produit:hover{ background: #c0c0c0; }
+/**************************************************** DIVERS ************************************************/
+table{ border-collapse: collapse; }
+table tr td{
+text-align: center;
+}
+td, th{ padding: 5px; }
+/*---------------------------------------------------*/
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+/* Bordered form */
+form {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: rgb(204,153,0) ;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#container h1{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color:rgb(204,153,0) ;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: rgb(204,153,0);
+    border: 1px solid black;
+}
+/**************************************************/
+.top-nav-bar{
+    height : 57px;
+    top : 0;
+    position : sticky;
+    background : #fff;
+    margin-bottom: 20px ;
+    border-bottom: 3px solid rgb(204,153,0);
+    z-index: 2;
+}
+.logo{
+    height : 40px;
+    margin : 5px 10px ;
+}
+.menu-bar{
+    width : 40%;
+    height : 57px ;
+    float : right;
+}
+/*/---------------------------Footer----------/*/
+
+.footer {
+  background: black;
+  width : 100%;
+  height: 300px;
+  color : white ;
+
+}
+
+
+
+
+#email{
+text-decoration: none;
+
+}
+.partie {
+width : 50%;
+float: left ;
+display: inline;
+}
+
+* {
+    margin : 0;
+    padding: 0 ;
+}
+body{
+    
+    font-family: sans-serif;
+}
+.top-nav-bar{
+    height : 57px;
+    top : 0;
+    position : sticky;
+    background : #fff;
+    margin-bottom: 20px ;
+    border-bottom: 3px solid rgb(204,153,0);
+    z-index: 2;
+}
+.logo{
+    height : 40px;
+    margin : 5px 10px ;
+}
+.search-box {
+    display: inline-flex;
+    width : 60%;
+
+}
+.fa-search{
+    color : black;
+}
+.menu-bar{
+    width : 40%;
+    height : 57px ;
+    float : right;
+}
+.menu-bar ul{
+    display: inline-flex;
+    float: right;
+}
+.menu-bar ul li {
+    border-left : 1px solid #fff;
+    list-style-type: none ;
+    padding :15px 35px;
+    text-align: center ;
+    background-color: rgb(204,153,0) ;
+    cursor: pointer ;
+}
+.menu-bar ul li a{
+    color : black;
+    font-size: 16px ;
+    font-weight : bold;
+    text-decoration: none ;
+}
+.shopping-basket{
+    margin-right: 5px ;
+
+}
+@media only screen and (max-width: 980px){
+    .top-nav-bar{
+        height : 118px;
+        border-bottom: 0 ;
+    }
+    .search-box{
+        width : 100%;
+
+    }
+    .menu-bar{
+        width: 100% ;
+    }
+    .menu-bar ul {
+        margin : 10px 0;
+        width : 100%;
+    }
+    .menu-bar ul li{
+        height : 57px ;
+        width : 100%;
+    }
+}
+.fa-angle-right{
+    margin-top : 4px;
+    margin-right: 8px ; 
+    float: right ; 
+}
+#menu-btn,#close-btn{
+    font-size: 30px ;
+    margin : 10px;
+    color : rgb(204,153,0);
+    display : none ;
+}
+
+
+@media only screen and (max-width: 980px){
+    
+    #menu-btn{
+        display : block;
+    }
+
+}
